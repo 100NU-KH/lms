@@ -7,7 +7,7 @@ from utility.choices import (EmploymentStatus,
 							 IncomeMode,
 							 AbominationStatus,
 							 ApplicationStatus,)
-
+from phone_field import PhoneField
 
 
 class Application(TimeStamp):
@@ -19,6 +19,7 @@ class Application(TimeStamp):
 	pan_card = models.CharField(max_length=10, null=False, blank=False)
 	income = models.FloatField(help_text='Mention salary if employed or the ROI id self-employed')
 	expected_loan_amount = models.FloatField()
+	phone_num = PhoneField(max_length = 14, blank=False,null=False, unique=True, help_text='Contact phone number', default="")
 
 	employment_status = models.CharField(max_length=50,
 										choices=EmploymentStatus.CHOICES,

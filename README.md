@@ -10,9 +10,9 @@ Clone lms in local directory.
 	pip3 install -r py3requirements.txt
 
 - LMS Urls 
-	- /application/create/  				> Application 
-	- /applicatoin/list/    				> lists all applications with pagination
-	- /application/update/<application-id>/ > manager user can update the application status to approved or rejected
+	- /application/create/  				- Application creation 
+	- /applicatoin/list/    				- lists all applications with pagination
+	- /application/update/<application-id>/ - manager user can update the application status to approved or rejected
 
 
 Done !!

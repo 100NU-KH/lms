@@ -1,1 +1,1 @@
-# lms
+# Loan Management System - LMS

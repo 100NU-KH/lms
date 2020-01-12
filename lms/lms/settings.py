@@ -25,10 +25,14 @@ SECRET_KEY = '5tgjse%a*k4l!ii0xc0yiq*@6jm3ix*p7q7k$9($dbxj!#tzhq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+LOCAL_APPS = [
+    'loan',
+    'utility',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+] + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +58,9 @@ ROOT_URLCONF = 'lms.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "./templates"),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,9 +80,16 @@ WSGI_APPLICATION = 'lms.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mdb_loan',
+            'USER': 'root',
+            'PASSWORD': '100nukh',
+            'HOST': 'localhost',
+            'PORT': '3306',
+            'OPTIONS': {
+            "sql_mode": 'STRICT_TRANS_TABLES'
+            }
     }
 }
 

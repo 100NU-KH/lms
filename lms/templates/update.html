@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Application Update</h2>
+  <div class="panel panel-primary card">
+  	<div class="panel-heading">{% if application %}{{ application.first_name }}( Expected Loan Amount {{ application.expected_loan_amount }}){% endif %}</div>
+    <div class="panel-body">
+    	<form method="POST" action="/application/update/{{ application.pk }}/">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-primary" style="float: right;">Submit</button>
+		</form>
+    </div>
+  </div>
+</div>
+{% endblock %}

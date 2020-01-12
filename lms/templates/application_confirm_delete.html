@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Application Delete</h2>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+   {% if application %}{{ application.first_name }}({{ application.expected_loan_amount }}){% endif %}</div>
+    <div class="panel-body">
+      <div class="container-fluid">
+      	<form action="{% url 'delete-application' pk=application.pk %}" method="post">
+		    {% csrf_token %}
+		    <p>Application <strong>{{ application.first_name }} Requested loan amount: {{ application.expected_loan_amount }}</strong> will be deleted permanently!</p>
+		    <ul>
+		        <input type="hidden" value="{{ application.id }}" name="itemsToDelete" />
+		        <li><a href="{{ application.get_absolute_url }}"></a>Are you sure?</li>
+		        <input type="submit" name="create" class="btn btn-primary" style="float: right; margin-top: 5px;" value="Delete" >
+		        <a href="{% url 'list-application' %}"><input type="button" name="create" class="btn btn-primary" style="float: right; margin-top: 5px; margin-left: 5px" value="Cancel" ></a>
+		    </ul>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

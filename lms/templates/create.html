@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Loan Application</h2>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+    {% if application %}{{ application.first_name }}({{ application.expected_loan_amount }}){% endif %}</div>
+    <div class="panel-body">
+      <div class="container-fluid">
+      	<form method="post" action="/application/create/">
+      		{% csrf_token %}
+      		{{ form }}
+      		<input type="submit" name="create" class="btn btn-primary" style="float: right; margin-top: 5px;" value="Create" >	
+      	</form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -7,7 +7,7 @@ Clone lms in local directory.
 
 - install all requirements using below commands
 	
-	pip3 install -r py3requirements.txt
+	pip3 install -r requirements.txt
 
 - LMS Urls 
 	- /application/create/  				- Application creation 

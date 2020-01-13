@@ -9,6 +9,9 @@ Clone lms in local directory.
 	
 	pip3 install -r requirements.txt
 
+
+- Create the mysql database and update the credentials in the django settings.py file for the DB connection.
+
 - LMS Urls 
 	- /application/create/  				- Application creation 
 	- /applicatoin/list/    				- lists all applications with pagination
